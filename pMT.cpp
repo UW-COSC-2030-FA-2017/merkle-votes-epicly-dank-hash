@@ -204,7 +204,7 @@ template< typename T >std::string int_to_hex(T i)
 	return stream.str();
 }
 
-string pMT::hash_1(string key)
+string pMT::hash_1(string key) //Erik Horwitz Hash
 /**
  * @brief A function that takes in a key and returns a hash of that key using some custom function
  * @param key, a string
@@ -223,7 +223,7 @@ string pMT::hash_1(string key)
 	int c;
 
 	while (c = *cstr++)
-		hash = (((((hash * hash4) % hash3) + c) - hash3) * hash4);
+		hash = (((((hash * c) % hash3) + hash4) - hash3) * hash4);
 
 	string hexHash = int_to_hex(hash);
 
@@ -232,7 +232,7 @@ string pMT::hash_1(string key)
 	return strang;
 }
 
-string pMT::hash_2(string key)
+string pMT::hash_2(string key)//Aaron Baker Hash
 /**
  * @brief A function that takes in a key and returns a hash of that key using some custom function
  * @param key, a string
@@ -262,7 +262,7 @@ string pMT::hash_2(string key)
 
 }
 
-string pMT::hash_3(string key)
+string pMT::hash_3(string key)//Jacob Claytor Hash
 /**
  * @brief A function that takes in a key and returns a hash of that key using some custom function
  * @param key, a string
